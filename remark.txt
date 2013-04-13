@@ -1,3 +1,26 @@
 JQuery autocomplete 结合ajax完美应用
 http://www.cnblogs.com/jia58960/archive/2012/02/22/2362875.html
 
+jquery中使用ajax的php实例
+http://www.2cto.com/kf/201109/104866.html
+
+
+<html>
+<head>
+<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $("#b01").click(function(){
+  htmlobj=$.ajax({url:"ajax.php",async:false});
+  $("#myDiv").html(htmlobj.responseText);
+  });
+});
+</script>
+</head>
+<body>
+
+<div id="myDiv"><h2>通过 AJAX 改变文本</h2></div>
+<button id="b01" type="button">改变内容</button>
+
+</body>
+</html>
