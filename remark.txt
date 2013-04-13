@@ -24,3 +24,85 @@ $(document).ready(function(){
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+jquery+json实现无刷新取值
+
+html jquery代码：
+
+<script>
+function edit(id)
+{
+alert
+
+(id);
+$.getJSON("edit.php",{save:'editjson',id:id},function(data){
+if($.trim(data.title))
+{
+//给下面的form赋值
+$("#edid").val(id);
+$("#save").val
+
+("edit");
+$("#title").val(data.title);
+$("#content").val(data.content);
+//下面的是赋值给fckeditor编辑器
+//var oEditor = FCKeditorAPI.GetInstance("afficheinfo") 
+
+;
+//oEditor.SetHTML(data.content) ;
+}
+else
+{
+alert("操作失败");
+//下面为用层显示错误信息
+//$('#result').css("display",'');
+//$('#result').html
+
+('<img src="/Public/images/icon/reg3.gif" alt="" />操作失败！');
+//setTimeout("$('#result').fadeOut()",1000);
+}
+
+});
+
+}
+</script>
+<a 
+
+href="edit(1);">这里是ID号</a>
+<form >
+ID:<input id="edid" value="" />
+title:<input id="title" value="" />
+conetnt:<input id="content" 
+
+value="" />
+</form>
+
+PHP代码：
+edit.php
+<pre>
+<?php
+if($_GET['id'])
+{
+//这里根据ID取到数据库数据，我这里就不写了
+echo 
+
+'{title:"'.$rs["title"].'",content:"'.$rs["content"].'"}';//这里返回json数据
+}
+?>
