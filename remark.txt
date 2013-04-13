@@ -1,0 +1,3 @@
+JQuery autocomplete 结合ajax完美应用
+http://www.cnblogs.com/jia58960/archive/2012/02/22/2362875.html
+
